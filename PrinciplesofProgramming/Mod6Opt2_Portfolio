@@ -1,0 +1,49 @@
+ary
+players = {}
+# Get input for 5 players
+for i in range(5):
+    # Get user input for jersey number
+    jerseyNumber = int(input("Enter a jersey number: "))
+    # Get user input for player number
+    playerRating = int(input("Enter a player rating: "))
+    
+    # Check if the jersey number is already in use
+    if jerseyNumber not in players:
+        # If not setup the dictionary
+        players[jerseyNumber] = playerRating
+        
+# Sort the players dictionary by value
+sortedRatings = sorted(players.items(), key = lambda kv: kv[1])
+
+# Print sortedRatings sorted dictionary
+for k,v in sortedRatings:
+    print("Jersey number: %d, Rating %d" % (k,v))
+
+
+# MENU
+menu = """MENU
+a - Add player
+d - Remove player
+u - Update player rating
+r - Output players above as rating
+o - Output roster
+q - Quit
+"""
+# MENU iterator
+while True:
+ print(menu)
+ letter = raw_input("Choose an option: ")
+ if letter.lower() == 'q':
+     break
+ elif letter.lower() == 'a':
+     print("Add player")
+ elif letter.lower() == 'd':
+     print("Remove player")
+ elif letter.lower() == 'u':
+     print("Update player rating")
+ elif letter.lower() == 'r':
+     print("Output players above a rating")
+ elif letter.lower() == 'o':
+     print("Output roster")
+ else:
+     print("Not an option")
